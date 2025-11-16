@@ -7,7 +7,7 @@ const AddNote = ({ addNotes }: { addNotes: (task: Note) => void }) => {
         const id = crypto.randomUUID();
         const x = Math.random() * window.innerWidth;
         const y = Math.random() * window.innerHeight;
-        addNotes({ id, text: value, x, y })
+        addNotes({ id, text: value, x, y, width: 0, height: 0 })
     }
     return (
         <div>

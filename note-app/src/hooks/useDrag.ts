@@ -1,6 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { isOverlaped } from "../utils/overlap";
+import { useNotes } from "./useNotes";
 
-export function useDrag(x: number, y: number) {
+export function useDrag(noteId: string, x: number, y: number) {
+    const { notes, updateNote } = useNotes()
     const [pos, setPos] = useState(() => ({ x, y }))
     const [isDragging, setIsDragging] = useState(false);
     const [offset, setOffset] = useState({ x: 0, y: 0 });
@@ -15,7 +18,13 @@ export function useDrag(x: number, y: number) {
     }
     const handleDragEnd = () => {
         setIsDragging(false);
+        updateNote(noteId, pos)
+
     }
+
+    useEffect(() => {
+        // console.log(isOverlaped(noteId, notes))
+    }, [notes])
 
     return {
         pos,

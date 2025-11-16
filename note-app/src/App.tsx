@@ -1,10 +1,11 @@
 import AddNote from './components/addNote';
 import NoteList from './components/NoteList';
-import { useTasks } from './hooks/useTasks';
+import { useNotes } from './hooks/useNotes';
 import './style.css'
 
 const App = () => {
-    const { notes, addNotes } = useTasks();
+    const { notes, addNotes } = useNotes();
+    console.log(notes)
     return (
         <div>
             <AddNote addNotes={addNotes}/>

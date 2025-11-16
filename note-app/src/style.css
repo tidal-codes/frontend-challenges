@@ -7,5 +7,6 @@
     padding: 1.2rem;
     background-color: goldenrod;
     min-width: 150px;
+    max-width: 250px;
     position: absolute;
 }
